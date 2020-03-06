@@ -6,12 +6,15 @@ def get_chatbot_response(message):
     if command == "Hey":
         return "What's up!"
     elif command == "add":
-        num1, num2 = args.split()
-        return num1 + num2
+        numbers = [int(i) for i in args.split() if i.isdigit()]
+        return sum(numbers)
     elif command == "divide":
-        num1, num2 = args.split()
+        numbers = [int(i) for i in args.split() if i.isdigit()]
+        num1 = numbers[0]
+        num2 = numbers[1]
         return num1 / num2
     elif command == "say":
         return args
     else:
         return "Oops! I didn't recognize your command :("
+
